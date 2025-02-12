@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .itinerary-planner {
+  padding: 2rem;
+  text-align: center;
+}
+
+.itinerary-days {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.day {
+  background-color: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.day h3 {
+  margin-bottom: 1rem;
+}
+
+.day input {
+  padding: 0.5rem;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.day button {
+  padding: 0.5rem 1rem;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.activities-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.activities-list li {
+  background-color: white;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.reservations {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 2rem 0;
+}
+
+.reservations h2 {
+  margin-bottom: 1.5rem;
+}
+
+.flight-details {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flight-info, .flight-timings {
+  margin-bottom: 1.5rem;
+}
+
+.flight-info p, .flight-timings p {
+  margin: 0.5rem 0;
+}
+
+.check-in-btn {
+  background-color: #ff6347;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.live-status {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-btn {
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <section class="reservations">
+        <h2>Reservations and Attachments</h2>
+        <div class="flight-details">
+          <h3>Flights</h3>
+          <div class="flight-info">
+            <p><strong>SFO → LIH</strong></p>
+            <p>United Airlines UA 1234</p>
+            <p>Sat, Mar 3 • 5h 15min</p>
+          </div>
+          <div class="flight-timings">
+            <p><strong>SFO San Francisco</strong></p>
+            <p>5:30pm</p>
+            <p><strong>LIH Lihue</strong></p>
+            <p>10:45pm</p>
+          </div>
+          <button class="check-in-btn">Haven’t checked in yet? Check in</button>
+          <div class="live-status">
+            <p>Updating live status...</p>
+            <button class="edit-btn">Edit</button>
+          </div>
+        </div>
+      </section>
+
+    <section class="itinerary-planner">
+    <h2>Create Your Itinerary</h2>
+    <div class="itinerary-days">
+      <div class="day">
+        <h3>Day 1</h3>
+        <input type="text" placeholder="Add destination or activity">
+        <button class="add-activity">Add</button>
+        <ul class="activities-list"></ul>
+      </div>
+      <div class="day">
+        <h3>Day 2</h3>
+        <input type="text" placeholder="Add destination or activity">
+        <button class="add-activity">Add</button>
+        <ul class="activities-list"></ul>
+      </div>
+      <!-- Add more days as needed -->
+    </div>
+  </section>
+</body>
+
+<script>
+    document.querySelectorAll('.add-activity').forEach(button => {
+  button.addEventListener('click', () => {
+    const input = button.previousElementSibling;
+    const activity = input.value.trim();
+    if (activity) {
+      const list = button.nextElementSibling;
+      const listItem = document.createElement('li');
+      listItem.textContent = activity;
+      list.appendChild(listItem);
+      input.value = '';
+    }
+  });
+});
+const liveStatus = document.querySelector('.live-status p');
+
+setInterval(() => {
+  liveStatus.textContent = `Updating live status... ${new Date().toLocaleTimeString()}`;
+}, 1000);
+</script>
+</html>

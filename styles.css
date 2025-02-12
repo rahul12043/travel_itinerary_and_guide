@@ -1,0 +1,172 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  background-color: #0f8b8d;
+  line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 2rem;
+  background-color: #333333f0;
+  position: sticky;
+  top:0;
+}
+
+nav .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+nav .nav-links button{
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: #ec9a29;
+  color: #143642;
+  border: none;
+  border-radius: 5px;
+}
+nav .nav-links button:hover{
+  scale: 1.02;
+  background-color: #faa42c;
+  color: #205366;
+  box-shadow: 4px 4px 20px #112e39;
+  cursor: pointer;
+  transition: 0.1s all ease-in;
+}
+
+nav .nav-links a:hover {
+  color: #ec9a29;
+}
+
+nav .nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  /* background-image: url('https://jooinn.com/images/beautiful-lake-view-3.jpg'); */
+  background: linear-gradient(rgba(39, 38, 39, 0.8), rgba(24, 22, 22, 0.8)), url("https://jooinn.com/images/beautiful-lake-view-3.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  height: 100vh;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  padding: 30px;
+}
+
+
+.hero .btn {
+  background-color:  #ec9a29;
+  color: #143642;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+
+/* Destination Section */
+.destination {
+  padding: 2rem;
+  text-align: center;
+}
+
+.destination h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.destination-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Itinerary Days Section */
+.itinerary-days {
+  padding: 2rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.itinerary-days h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.days-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.day-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.day-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+footer p {
+  margin: 0;
+}
