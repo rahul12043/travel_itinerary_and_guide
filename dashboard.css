@@ -234,3 +234,21 @@ body {
     font-size: 0.8rem;
 }
 
+
+.last-visited-btn {
+    background: #ec9a29;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+.last-visited-btn:hover {
+    background: #d68b24;
+    transform: translateX(5px);
+}
