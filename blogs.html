@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBuddy - Blogs</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Blog Section Styling */
+    .blogs {
+      text-align: center;
+      padding: 3rem 2rem;
+      background-color: #f4f4f4;
+    }
+    .blogs h2 {
+      font-size: 2.5rem;
+      color: #0f8b8d;
+      margin-bottom: 1.5rem;
+    }
+    .featured-blog {
+      background: linear-gradient(rgba(39, 38, 39, 0.8), rgba(24, 22, 22, 0.8)), url("https://www.torntackies.com/wp-content/uploads/2021/01/Bali-itinerary-for-3-weeks.jpg");;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 2rem;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .featured-blog h3 {
+      font-size: 2rem;
+    }
+    .featured-blog p {
+      font-size: 1.2rem;
+    }
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .blog-post {
+      background: white;
+      color: #0f8b8d;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .blog-post:hover {
+      transform: scale(1.05);
+    }
+    .blog-post img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .blog-post h3 {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #ec9a29;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #d48827;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="#"><span style="color: #ec9a29;">Travel</span>Buddy</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><button>Log-in</button></li>
+    </ul>
+  </nav>
+
+  <!-- Featured Blog -->
+  <section class="featured-blog">
+    <h3>Top Travel Destination of the Month</h3>
+    <p>Find out why Bali is the ultimate travel paradise in our latest blog post!</p>
+    <a href="#" class="btn">Read More</a>
+  </section>
+
+  <!-- Blogs Section -->
+  <section class="blogs">
+    <h2>Discover Inspiring Travel Stories</h2>
+    <div class="blog-container">
+      <article class="blog-post">
+        <img src="https://www.travelonline.com/bali/beaches/beach-114814-banner.jpg" alt="Travel Blog 1">
+        <h3>Exploring the Hidden Beaches of Bali</h3>
+        <p>Discover untouched shores, scenic sunsets, and the best surf spots in Bali. A paradise waiting for you.</p>
+        <a href="#" class="btn">Read More</a>
+      </article>
+      <article class="blog-post">
+        <img src="https://www.worldatlas.com/r/w768/upload/06/b0/a6/swiss-alps-edler-von-rabenstein.jpg" alt="Travel Blog 2">
+        <h3>A Thrill Seeker's Guide to the Swiss Alps</h3>
+        <p>From skiing to paragliding, experience the ultimate adventure in the heart of Europe.</p>
+        <a href="#" class="btn">Read More</a>
+      </article>
+      <article class="blog-post">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6gm0w7pnwMjuhKaUGK1WgzBLNvlC-ILRrQ&s" alt="Travel Blog 3">
+        <h3>Tokyo by Night: A Journey Through Neon Lights</h3>
+        <p>Experience Tokyo’s vibrant nightlife, hidden bars, and unique cultural experiences.</p>
+        <a href="#" class="btn">Read More</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">About TravelBuddy</a>
+        <a href="#">Destinations</a>
+        <a href="#">Write For Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Pricing</a>
+        <a href="#">Packages</a>
+      </div>
+      <p>Copyright 2024 MRR. Made with love ❤️</p>
+    </div>
+  </footer>
+</body>
+</html>
