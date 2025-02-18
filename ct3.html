@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f8b8d;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .container, .map-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 350px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 400px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.272);
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 2px solid #0f8b8d;
+        }
+
+        button {
+            background-color: #0f8b8d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d6b6d;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 5px solid #007BFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container, .map-container {
+                width: 100%;
+            }
+
+            #map {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Plan <span style="color: #ec9a29;">Your</span> Trip</h1>
+            <label for="destination"><strong>Where to?</strong></label>
+            <input type="text" id="destination" placeholder="Enter destination">
+            
+            <label for="start-date">Start Date</label>
+            <input type="date" id="start-date">
+            
+            <label for="end-date">End Date</label>
+            <input type="date" id="end-date">
+            
+            <button onclick="addTrip()">Add Trip</button>
+            
+            <div id="itinerary"></div>
+        </div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+    
+    <script>
+        function initMap() {
+            window.map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 40.7128, lng: -74.0060 }, // Default to NYC
+                zoom: 10,
+            });
+        }
+
+        function addTrip() {
+            const destination = document.getElementById('destination').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            
+            if (!destination || !startDate || !endDate) {
+                alert("Please fill in all fields.");
+                return;
+            }
+            
+            const itineraryDiv = document.getElementById('itinerary');
+            itineraryDiv.innerHTML = ` 
+                <h2>Trip to ${destination}</h2>
+                <p>${startDate} to ${endDate}</p>
+                <button onclick="addActivity()">Add Activity</button>
+                <ul id="activities"></ul>
+            `;
+            
+            updateMap(destination);
+        }
+
+        function addActivity() {
+            const activity = prompt("Enter activity:");
+            const time = prompt("Enter time for the activity:");
+
+            if (activity && time) {
+                const ul = document.getElementById('activities');
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${activity}</span> 
+                    <span>${time}</span>
+                `;
+                ul.appendChild(li);
+            } else {
+                alert("Please enter both activity and time.");
+            }
+        }
+
+        function updateMap(destination) {
+            const geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ address: destination }, (results, status) => {
+                if (status === "OK") {
+                    window.map.setCenter(results[0].geometry.location);
+                    new google.maps.Marker({
+                        map: window.map,
+                        position: results[0].geometry.location,
+                    });
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0gddna6ChzN7-8Wm8bQX4qg0zQhgNWrY&callback=initMap&libraries=places&callback=initMap&libraries=places"></script>
+</body>
+</html>
